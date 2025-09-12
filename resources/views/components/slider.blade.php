@@ -66,8 +66,8 @@
     /* Caption */
     .slider-area .caption-group {
         position: absolute;
-        bottom: 30px;
-        right: 40px;
+        bottom: 150px;
+        right: 100px;
         max-width: 400px;
         text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
         color: #0a0a0a;
@@ -185,6 +185,46 @@
         animation: particleFloat 10s linear infinite;
     }
 
+    .cta-button {
+        background: linear-gradient(135deg, #00d4ff 0%, #ff0080 100%);
+        border: none;
+        padding: 18px 40px;
+        border-radius: 50px;
+        color: white;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        align-self: flex-start;
+        opacity: 0;
+        animation: fadeInUp 0.6s ease-out 1s forwards;
+        margin-top: 10px;
+    }
+
+    .cta-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+    }
+
+    .cta-button:hover::before {
+        left: 100%;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(0, 212, 255, 0.3);
+    }
+
     @keyframes particleFloat {
         0% {
             transform: translateY(100%);
@@ -228,7 +268,7 @@
             <div class="caption-group">
                 <h2>iPhone 6 Plus</h2>
                 <h4 class="caption subtitle">Dual SIM</h4>
-
+                <button class="cta-button">Shop now</button>
             </div>
         </li>
         <li class="slide">
@@ -238,6 +278,8 @@
                     by one, get one <span class="primary">50% <strong>off</strong></span>
                 </h2>
                 <h4 class="caption subtitle">school supplies & backpacks.*</h4>
+                <button class="cta-button">Shop now</button>
+
             </div>
         </li>
         <li class="slide">
@@ -247,6 +289,8 @@
                     Apple Store Ipod
                 </h2>
                 <h4 class="caption subtitle">Select Item</h4>
+                <button class="cta-button">Shop now</button>
+
             </div>
         </li>
         <li class="slide">
@@ -256,6 +300,8 @@
                     Apple Store Ipod
                 </h2>
                 <h4 class="caption subtitle">& Phone</h4>
+                <button class="cta-button">Shop now</button>
+
             </div>
         </li>
     </ul>
