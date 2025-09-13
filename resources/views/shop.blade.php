@@ -1,4 +1,6 @@
 @extends('layouts.app')
+
+
 @section('content')
 <div class="product-big-title-area">
         <div class="container">

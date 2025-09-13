@@ -103,11 +103,11 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{{route('home')}}">Home</a></li>
-                        <li><a href="{{ route('shop') }}">Shop page</a></li>
-                        <li><a href="{{route('single-product')}}">Single product</a></li>
-                        <li><a href="{{route('cart')}}">Cart</a></li>
-                        <li><a href="{{route('checkout')}}">Checkout</a></li>
+                        <li class="{{ request()->routeIs('home') ? 'active' : '' }}"><a href="{{route('home')}}">Home</a></li>
+                        <li class="{{ request()->routeIs('shop') ? 'active' : '' }}"><a href="{{ route('shop') }}">Shop page</a></li>
+                        <li class="{{ request()->routeIs('single-product') ? 'active' : '' }}"><a href="{{route('single-product')}}">Single product</a></li>
+                        <li class="{{ request()->routeIs('cart') ? 'active' : '' }}"><a href="{{route('cart')}}">Cart</a></li>
+                        <li class="{{ request()->routeIs('checkout') ? 'active' : '' }}"><a href="{{route('checkout')}}">Checkout</a></li>
                         <li><a href="#">Category</a></li>
                         <li><a href="#">Others</a></li>
                         <li><a href="#">Contact</a></li>
