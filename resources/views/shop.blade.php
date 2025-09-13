@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Shop Page')
 
 @section('content')
 <div class="product-big-title-area">

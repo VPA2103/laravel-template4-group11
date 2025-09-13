@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Checkout')
 @section('content')
 <div class="single-product-area">
         <div class="zigzag-bottom"></div>
