@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <!-- Responsive -->
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+    @yield('linkcss')
 </head>
 <body>
    
@@ -108,9 +109,10 @@
                         <li class="{{ request()->routeIs('single-product') ? 'active' : '' }}"><a href="{{route('single-product')}}">Single product</a></li>
                         <li class="{{ request()->routeIs('cart') ? 'active' : '' }}"><a href="{{route('cart')}}">Cart</a></li>
                         <li class="{{ request()->routeIs('checkout') ? 'active' : '' }}"><a href="{{route('checkout')}}">Checkout</a></li>
+
                         <li><a href="#">Category</a></li>
                         <li><a href="#">Others</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li class="{{ request()->routeIs('contact') ? 'active' : '' }}"><a href="{{route('contact')}}">Contact</a></li>
                     </ul>
                 </div>  
             </nav>
@@ -211,5 +213,7 @@
     <script src="{{ asset('assets/js/script.slider.js') }}"></script>
     <script src="{{ asset('assets/js/bxslider.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    @yield('linkjs')
+
 </body>
 </html>
