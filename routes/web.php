@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -11,5 +12,7 @@ Route::get('/shop',[ShopController::class,'index'])->name('shop');
 Route::get('/single-product',[SingleProductController::class,'index'])->name('single-product');
 Route::get('/cart',[CartController::class,'show'])->name('cart');
 Route::get('/checkout',[CheckoutController::class,'show'])->name('checkout');
+Route::get('/contact', [ContactController::class, 'create'])->name('contact'); // hiển thị form + danh sách
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 
