@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,8 +18,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
     @yield('linkcss')
 </head>
+
 <body>
-   
+
     <!-- Header -->
     <div class="header-area">
         <div class="container">
@@ -26,7 +28,12 @@
                 <div class="col-md-8">
                     <div class="user-menu">
                         <ul>
-                            <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
+                            <li>
+                                    <a href="{{ route('login') }}">
+                                        <i class="fa fa-user"></i> My Account
+                                    </a>
+                               
+                            </li>
                             <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
                             <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
                             <li><a href="checkout.html"><i class="fa fa-credit-card"></i> Checkout</a></li>
@@ -34,13 +41,14 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="col-md-4">
                     <div class="header-right">
                         <ul class="list-unstyled list-inline">
                             <li class="dropdown dropdown-small">
                                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                    <span class="key">currency :</span><span class="value">USD </span><b class="caret"></b>
+                                    <span class="key">currency :</span><span class="value">USD </span><b
+                                        class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">USD</a></li>
@@ -51,7 +59,8 @@
 
                             <li class="dropdown dropdown-small">
                                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                    <span class="key">language :</span><span class="value">English </span><b class="caret"></b>
+                                    <span class="key">language :</span><span class="value">English </span><b
+                                        class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">English</a></li>
@@ -66,7 +75,7 @@
         </div>
     </div>
     <!-- End header area -->
-    
+
     <!-- Logo + Cart -->
     <div class="site-branding-area">
         <div class="container">
@@ -76,11 +85,11 @@
                         <h1><a href="./"><img src="{{ asset('assets/img/logo.png') }}"></a></h1>
                     </div>
                 </div>
-                
+
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="cart.html">Cart - <span class="cart-amunt">$100</span> 
-                            <i class="fa fa-shopping-cart"></i> 
+                        <a href="cart.html">Cart - <span class="cart-amunt">$100</span>
+                            <i class="fa fa-shopping-cart"></i>
                             <span class="product-count">5</span>
                         </a>
                     </div>
@@ -89,7 +98,7 @@
         </div>
     </div>
     <!-- End site branding area -->
-    
+
     <!-- Main Menu -->
     <div class="mainmenu-area">
         <div class="container">
@@ -101,25 +110,32 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                </div> 
+                </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="{{ request()->routeIs('home') ? 'active' : '' }}"><a href="{{route('home')}}">Home</a></li>
-                        <li class="{{ request()->routeIs('shop') ? 'active' : '' }}"><a href="{{ route('shop') }}">Shop page</a></li>
-                        <li class="{{ request()->routeIs('single-product') ? 'active' : '' }}"><a href="{{route('single-product')}}">Single product</a></li>
-                        <li class="{{ request()->routeIs('cart') ? 'active' : '' }}"><a href="{{route('cart')}}">Cart</a></li>
-                        <li class="{{ request()->routeIs('checkout') ? 'active' : '' }}"><a href="{{route('checkout')}}">Checkout</a></li>
+                        <li class="{{ request()->routeIs('home') ? 'active' : '' }}"><a
+                                href="{{route('home')}}">Home</a></li>
+                        <li class="{{ request()->routeIs('shop') ? 'active' : '' }}"><a href="{{ route('shop') }}">Shop
+                                page</a></li>
+                        <li class="{{ request()->routeIs('single-product') ? 'active' : '' }}"><a
+                                href="{{route('single-product')}}">Single product</a></li>
+                        <li class="{{ request()->routeIs('cart') ? 'active' : '' }}"><a
+                                href="{{route('cart')}}">Cart</a></li>
+                        <li class="{{ request()->routeIs('checkout') ? 'active' : '' }}"><a
+                                href="{{route('checkout')}}">Checkout</a></li>
 
                         <li><a href="#">Category</a></li>
                         <li><a href="#">Others</a></li>
-                        <li class="{{ request()->routeIs('contact') ? 'active' : '' }}"><a href="{{route('contact')}}">Contact</a></li>
+                        <li class="{{ request()->routeIs('contact') ? 'active' : '' }}"><a
+                                href="{{route('contact')}}">Contact</a></li>
                     </ul>
-                </div>  
+                </div>
             </nav>
         </div>
     </div>
-    
+
     <main>
+        
         @yield('content')
     </main>
     <!-- Footer -->
@@ -130,7 +146,10 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-about-us">
                         <h2>u<span>Stora</span></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus vero quam laborum quas alias dolores blanditiis iusto consequatur, modi aliquid eveniet eligendi iure eaque ipsam iste, pariatur omnis sint! Suscipit, debitis, quisquam. Laborum commodi veritatis magni at?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus vero
+                            quam laborum quas alias dolores blanditiis iusto consequatur, modi aliquid eveniet eligendi
+                            iure eaque ipsam iste, pariatur omnis sint! Suscipit, debitis, quisquam. Laborum commodi
+                            veritatis magni at?</p>
                         <div class="footer-social">
                             <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
                             <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
@@ -139,7 +158,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-menu">
                         <h2 class="footer-wid-title">User Navigation </h2>
@@ -149,10 +168,10 @@
                             <li><a href="#">Wishlist</a></li>
                             <li><a href="#">Vendor contact</a></li>
                             <li><a href="#">Front page</a></li>
-                        </ul>                        
+                        </ul>
                     </div>
                 </div>
-                
+
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-menu">
                         <h2 class="footer-wid-title">Categories</h2>
@@ -162,14 +181,15 @@
                             <li><a href="#">LED TV</a></li>
                             <li><a href="#">Computer</a></li>
                             <li><a href="#">Gadets</a></li>
-                        </ul>                        
+                        </ul>
                     </div>
                 </div>
-                
+
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-newsletter">
                         <h2 class="footer-wid-title">Newsletter</h2>
-                        <p>Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!</p>
+                        <p>Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to
+                            your inbox!</p>
                         <div class="newsletter-form">
                             <form action="#">
                                 <input type="email" placeholder="Type your email">
@@ -186,11 +206,12 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="copyright">
-                        <p>&copy; 2015 uCommerce. All Rights Reserved. 
-                           <a href="http://www.freshdesignweb.com" target="_blank">freshDesignweb.com</a></p>
+                        <p>&copy; 2015 uCommerce. All Rights Reserved.
+                            <a href="http://www.freshdesignweb.com" target="_blank">freshDesignweb.com</a>
+                        </p>
                     </div>
                 </div>
-                
+
                 <div class="col-md-4">
                     <div class="footer-card-icon">
                         <i class="fa fa-cc-discover"></i>
@@ -216,4 +237,5 @@
     @yield('linkjs')
 
 </body>
+
 </html>
