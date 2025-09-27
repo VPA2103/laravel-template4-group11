@@ -1,11 +1,38 @@
 <?php
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SingleProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/register', function () {
+    return view('auth.register'); // Blade view đăng ký
+})->middleware('guest')->name('register.form');
+
+Route::post('/register', [RegisterUserController::class, 'store'])
+    ->middleware('guest')
+    ->name('register');
+// Route::get('/dashboard', function() {
+//     return view('dashboard');
+// })->middleware('role:admin');
+
+// Trang cho user
+Route::get('/account', function() {
+    return view('user.accountUser');
+})->middleware('auth', 'loainhanvien:user')->name('accountUser');
+
+//user
+Route::get('/accountUser', [UserController::class, 'accountUser'])->name('accountUser');
+
 
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/shop',[ShopController::class,'index'])->name('shop');
