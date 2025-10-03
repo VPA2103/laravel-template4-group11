@@ -10,5 +10,10 @@ class HomeController extends Controller
         $sanphams = SanPham::all(); // Lấy toàn bộ sản phẩm
         return view('index', compact('sanphams'));
     }
+    public function show($MaSanPham)
+    {
+        $sanpham = SanPham::findOrFail($MaSanPham);
+        return view('single-product', compact('sanpham'));
+    }
    
 }
