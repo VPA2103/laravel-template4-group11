@@ -9,10 +9,21 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SingleProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use Illuminate\Support\Facades\DB;
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/db-test', function () {
+    try {
+        DB::connection()->getPdo();
+        return "✅ Kết nối thành công tới MySQL!";
+    } catch (\Exception $e) {
+        return "❌ Lỗi kết nối: " . $e->getMessage();
+    }
+});
+
 
 Route::get('/register', function () {
     return view('auth.register'); // Blade view đăng ký
