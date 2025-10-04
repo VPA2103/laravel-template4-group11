@@ -450,7 +450,18 @@ z-index: 999;}
 
 
 .product-carousel {
+  display: flex;           /* xếp item ngang hàng */
+  gap: 20px;               /* khoảng cách giữa các sản phẩm */
+  overflow-x: auto;        /* cuộn ngang nếu tràn */
   padding-top: 40px;
+}
+.product-carousel .single-product {
+  flex: 0 0 auto;          /* giữ nguyên kích thước item */
+  width: 220px;            /* mỗi item rộng 220px (bạn chỉnh tuỳ ý) */
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  background: #fff;
 }
 .latest-product .owl-nav {
   position: absolute;
