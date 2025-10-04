@@ -53,6 +53,8 @@ Route::get('/checkout',[CheckoutController::class,'show'])->name('checkout');
 Route::get('/contact', [ContactController::class, 'create'])->name('contact'); // hiển thị form + danh sách
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/product/{MaSanPham}', [HomeController::class, 'show'])->name('product.show');
+// Route::get('/product/top-seller', [HomeController::class, 'topSellers'])->name('product.top.seller');
+
 
 
 

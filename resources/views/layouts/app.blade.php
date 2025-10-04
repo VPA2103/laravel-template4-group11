@@ -29,10 +29,10 @@
                     <div class="user-menu">
                         <ul>
                             <li>
-                                    <a href="{{ route('login') }}">
-                                        <i class="fa fa-user"></i> My Account
-                                    </a>
-                               
+                                <a href="{{ route('login') }}">
+                                    <i class="fa fa-user"></i> My Account
+                                </a>
+
                             </li>
                             <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
                             <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
@@ -118,7 +118,8 @@
                         <li class="{{ request()->routeIs('shop') ? 'active' : '' }}"><a href="{{ route('shop') }}">Shop
                                 page</a></li>
                         <li class="{{ request()->routeIs('single-product') ? 'active' : '' }}">
-                            <a href="{{ route('product.show', ['MaSanPham' => 1]) }}">Single product</a></li>
+                            <a href="{{ route('product.show', ['MaSanPham' => 1]) }}">Single product</a>
+                        </li>
                         <li class="{{ request()->routeIs('cart') ? 'active' : '' }}"><a
                                 href="{{route('cart')}}">Cart</a></li>
                         <li class="{{ request()->routeIs('checkout') ? 'active' : '' }}"><a
@@ -135,7 +136,7 @@
     </div>
 
     <main>
-        
+
         @yield('content')
     </main>
     <!-- Footer -->
