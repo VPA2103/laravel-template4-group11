@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 use Illuminate\Database\Eloquent\Model;
 
 class SanPham extends Model
 {
+    use HasFactory;
    protected $table = 'SanPham';
 
     // Khóa chính
@@ -22,6 +24,6 @@ class SanPham extends Model
     ];
     public function loaiSanPham()
     {
-        return $this->belongsTo(LoaiSanPham::class, 'MaLoaiSanPham', 'id');
+        return $this->belongsTo(LoaiSanPham::class, 'MaLoaiSanPham', 'MaLoaiSanPham');
     }
 }

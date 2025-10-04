@@ -117,8 +117,8 @@
                                 href="{{route('home')}}">Home</a></li>
                         <li class="{{ request()->routeIs('shop') ? 'active' : '' }}"><a href="{{ route('shop') }}">Shop
                                 page</a></li>
-                        <li class="{{ request()->routeIs('single-product') ? 'active' : '' }}"><a
-                                href="{{route('single-product')}}">Single product</a></li>
+                        <li class="{{ request()->routeIs('single-product') ? 'active' : '' }}">
+                            <a href="{{ route('product.show', ['MaSanPham' => 1]) }}">Single product</a></li>
                         <li class="{{ request()->routeIs('cart') ? 'active' : '' }}"><a
                                 href="{{route('cart')}}">Cart</a></li>
                         <li class="{{ request()->routeIs('checkout') ? 'active' : '' }}"><a
