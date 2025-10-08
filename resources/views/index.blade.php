@@ -54,6 +54,7 @@
                                             <a href="{{ route('product.show', ['MaSanPham' => $sp->MaSanPham]) }}" class="view-details-link"><i class="fa fa-link"></i> See details</a>
                                         </div>
                                     </div>
+                                    <p>hello</p>
 
                                     <h2><a href="#">{{ $sp->TenSanPham }}</a></h2>
 
