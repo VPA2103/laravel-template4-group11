@@ -8,14 +8,24 @@ use Illuminate\Support\Facades\Auth;
 
 class CheckLoaiNhanVien
 {
-    public function handle(Request $request, Closure $next, $loai)
+    public function handle(Request $request, Closure $next, ...$guards)
     {
-        if (!Auth::check()) {
-            return redirect('/login');
-        }
+        $guards = empty($guards) ? [null] : $guards;
 
-        if (Auth::user()->loainhanvien !== $loai) {
-            return abort(403, 'Bạn không có quyền truy cập');
+        foreach ($guards as $guard) {
+            if (Auth::guard($guard)->check()) {
+
+                // ✅ Nếu đã đăng nhập → điều hướng đúng trang
+                $user = Auth::user();
+                if ($user->loainhanvien === 'admin') {
+                    return redirect('/accountAdmin');
+                } elseif ($user->loainhanvien === 'user') {
+                    return redirect('/account');
+                }
+
+                // Mặc định
+                return redirect('/');
+            }
         }
 
         return $next($request);
