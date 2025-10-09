@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RegisterUserController;
@@ -32,17 +33,35 @@ Route::get('/register', function () {
 Route::post('/register', [RegisterUserController::class, 'store'])
     ->middleware('guest')
     ->name('register');
-// Route::get('/dashboard', function() {
-//     return view('dashboard');
-// })->middleware('role:admin');
 
-// Trang cho user
-Route::get('/account', function() {
-    return view('user.accountUser');
-})->middleware('auth', 'loainhanvien:user')->name('accountUser');
+
+// Route::get('/account', function() {
+//     return view('user.accountUser');
+// })->middleware('auth', 'loainhanvien:user')->name('accountUser');
+
+// Route::get('/accountAdmin', function() {
+//     return view('user.accountAdmin');
+// })->middleware('auth', 'loainhanvien:admin')->name('accountAdmin');
+
+//user
+Route::middleware(['auth', 'loainhanvien:user'])->group(function () {
+    // Giao diện tài khoản người dùng
+    Route::get('/account', function () {return view('user.accountUser');})->name('accountUser.view');
+    });
+
+
+//admin
+Route::middleware(['auth', 'loainhanvien:admin'])->group(function () {
+    // Giao diện tài khoản admin
+    Route::get('/accountAdmin', function () {return view('user.accountAdmin');})->name('accountAdmin.view');
+     });
+
 
 //user
 Route::get('/accountUser', [UserController::class, 'accountUser'])->name('accountUser');
+
+//admin
+Route::get('/accountAdmin', [AdminController::class, 'accountAdmin'])->name('accountAdmin');
 
 
 Route::get('/',[HomeController::class,'index'])->name('home');

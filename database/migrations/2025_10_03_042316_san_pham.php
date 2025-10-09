@@ -19,8 +19,8 @@ return new class extends Migration
         $table->integer('SoLuongTon')->default(0);
         $table->string('AnhSanPham')->nullable();
         $table->unsignedBigInteger('MaLoaiSanPham')->nullable();
+        $table->string('Slug')->unique();
         $table->timestamps();
-
          });
     }
 

@@ -7,17 +7,23 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    // Hiển thị form đăng nhập
     public function showLoginForm()
     {
+        // Nếu đã đăng nhập rồi, chuyển hướng thẳng theo role
+        if (Auth::check()) {
+            $user = Auth::user();
+            return $user->loainhanvien === 'admin'
+                ? redirect()->route('accountAdmin')
+                : redirect()->route('accountUser');
+        }
+
         return view('auth.login');
     }
 
-    // Xử lý đăng nhập
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'email' => ['required','email'],
+            'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
@@ -26,9 +32,8 @@ class AuthController extends Controller
 
             $user = Auth::user();
 
-            // Redirect theo role
             if ($user->loainhanvien === 'admin') {
-                return redirect()->route('dashboard');
+                return redirect()->route('accountAdmin');
             } else {
                 return redirect()->route('accountUser');
             }
@@ -39,7 +44,6 @@ class AuthController extends Controller
         ])->onlyInput('email');
     }
 
-    // Xử lý đăng xuất
     public function logout(Request $request)
     {
         Auth::logout();
