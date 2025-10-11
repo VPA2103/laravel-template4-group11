@@ -38,7 +38,7 @@ Route::middleware(['auth'])->group(function () {
 //admin
 Route::middleware(['auth',AuthAdmin::class])->group(function () {
     // Giao diện tài khoản người dùng
-    Route::get('/account-dashboard', [AdminController::class,'index'])->name('admin.index');
+    Route::get('/admin', [AdminController::class,'index'])->name('admin.index');
     });
 
 
