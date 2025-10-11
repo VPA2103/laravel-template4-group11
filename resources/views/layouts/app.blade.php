@@ -26,10 +26,15 @@
                     <div class="user-menu">
                         <ul>
                             <li>
-                                <a href="{{ route('login') }}">
-                                    <i class="fa fa-user"></i> My Account
-                                </a>
-
+                                @guest
+                                    <a href="{{ route('login') }}">
+                                        <i class="fa fa-user"></i> My Account
+                                    </a>
+                                @else
+                                    <a href="{{ Auth::user()->utype=== 'ADM' ? route('admin.index') : route('user.index')}}">
+                                        <i class="fa fa-user"></i> My Account
+                                    </a>
+                                @endguest                            
                             </li>
                             <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
                             <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
