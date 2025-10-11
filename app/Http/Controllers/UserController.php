@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function accountUser()
+    public function index()
     {
-        return view('user.accountUser');
+        return view('user.index');
     }
 }

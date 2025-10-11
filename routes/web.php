@@ -2,9 +2,9 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\AuthAdmin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SingleProductController;
@@ -12,9 +12,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\DB;
 
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
 
 Route::get('/db-test', function () {
     try {
@@ -26,42 +24,25 @@ Route::get('/db-test', function () {
 });
 
 
-Route::get('/register', function () {
-    return view('auth.register'); // Blade view đăng ký
-})->middleware('guest')->name('register.form');
-
-Route::post('/register', [RegisterUserController::class, 'store'])
-    ->middleware('guest')
-    ->name('register');
 
 
-// Route::get('/account', function() {
-//     return view('user.accountUser');
-// })->middleware('auth', 'loainhanvien:user')->name('accountUser');
 
-// Route::get('/accountAdmin', function() {
-//     return view('user.accountAdmin');
-// })->middleware('auth', 'loainhanvien:admin')->name('accountAdmin');
 
 //user
-Route::middleware(['auth', 'loainhanvien:user'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     // Giao diện tài khoản người dùng
-    Route::get('/account', function () {return view('user.accountUser');})->name('accountUser.view');
+    Route::get('/account-dashboard', [UserController::class,'index'])->name('user.index');
     });
 
 
 //admin
-Route::middleware(['auth', 'loainhanvien:admin'])->group(function () {
-    // Giao diện tài khoản admin
-    Route::get('/accountAdmin', function () {return view('user.accountAdmin');})->name('accountAdmin.view');
-     });
+Route::middleware(['auth',AuthAdmin::class])->group(function () {
+    // Giao diện tài khoản người dùng
+    Route::get('/account-dashboard', [AdminController::class,'index'])->name('admin.index');
+    });
 
 
-//user
-Route::get('/accountUser', [UserController::class, 'accountUser'])->name('accountUser');
 
-//admin
-Route::get('/accountAdmin', [AdminController::class, 'accountAdmin'])->name('accountAdmin');
 
 
 Route::get('/',[HomeController::class,'index'])->name('home');
@@ -78,3 +59,7 @@ Route::get('/product/{MaSanPham}', [HomeController::class, 'show'])->name('produ
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

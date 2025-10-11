@@ -46,50 +46,55 @@
                             <h2 class="section-title">Latest Products</h2>
                             <div class="product-carousel">
                                 @foreach($sanphams as $sp)
-                                <div class="single-product">
-                                    <div class="product-f-image">
-                                        <img src="{{ asset('assets/products/' . $sp->AnhSanPham) }}" alt="{{ $sp->TenSanPham }}">
-                                        <div class="product-hover">
-                                            <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                            <a href="{{ route('product.show', ['MaSanPham' => $sp->MaSanPham]) }}" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    <div class="single-product">
+                                        <div class="product-f-image">
+                                            <img src="{{ asset('assets/products/' . $sp->AnhSanPham) }}"
+                                                alt="{{ $sp->TenSanPham }}">
+                                            <div class="product-hover">
+                                                <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to
+                                                    cart</a>
+                                                <a href="{{ route('product.show', ['MaSanPham' => $sp->MaSanPham]) }}"
+                                                    class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                            </div>
+                                        </div>
+
+                                        <h2><a href="#">{{ $sp->TenSanPham }}</a></h2>
+
+                                        <div class="product-carousel-price">
+                                            <ins>{{ number_format($sp->Gia, 0, ',', '.') }} VNĐ</ins>
                                         </div>
                                     </div>
-
-                                    <h2><a href="#">{{ $sp->TenSanPham }}</a></h2>
-
-                                    <div class="product-carousel-price">
-                                        <ins>{{ number_format($sp->Gia, 0, ',', '.') }} VNĐ</ins>
-                                    </div>
-                                </div>
-                                @endforeach            
+                                @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div> <!-- End main content area -->
+        </div>
 
         <div class="brands-area">
-            <div class="zigzag-bottom"></div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="brand-wrapper">
-                            <div class="brand-list">
-                                <img src="{{asset('assets/img/brand1.png')}}" alt="">
-                                <img src="{{asset('assets/img/brand2.png')}}" alt="">
-                                <img src="{{asset('assets/img/brand3.png')}}" alt="">
-                                <img src="{{asset('assets/img/brand4.png')}}" alt="">
-                                <img src="{{asset('assets/img/brand5.png')}}" alt="">
-                                <img src="{{asset('assets/img/brand6.png')}}" alt="">
-                                <img src="{{asset('assets/img/brand1.png')}}" alt="">
-                                <img src="{{asset('assets/img/brand2.png')}}" alt="">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="brand-wrapper">
+                    <div class="row brand-list text-center">
+                        @foreach($LoaiSanPhams as $loai)
+                            <div class="col-md-3 col-sm-6 mb-3">
+                                <img src="{{ asset('assets/loaisanphams/' . $loai->AnhLoaiSanPham) }}"
+                                     alt="{{ $loai->TenLoaiSanPham }}"
+                                     title="{{ $loai->TenLoaiSanPham }}"
+                                     class="img-fluid" style="max-height: 100px; object-fit: contain;">
+                                <p class="mt-2">{{ $loai->TenLoaiSanPham }}</p>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
-        </div> <!-- End brands area -->
+        </div>
+    </div>
+</div>
+
 
         <div class="product-widget-area">
             <div class="zigzag-bottom"></div>
@@ -102,9 +107,12 @@
                             @foreach ($topsellers as $sp)
                                 <div class="single-wid-product">
                                     <a href="{{ route('product.show', ['MaSanPham' => $sp->MaSanPham]) }}">
-                                        <img src="{{ asset('assets/products/' . $sp->AnhSanPham) }}" alt="" class="product-thumb">
+                                        <img src="{{ asset('assets/products/' . $sp->AnhSanPham) }}" alt=""
+                                            class="product-thumb">
                                     </a>
-                                    <h2><a href="{{ route('product.show', ['MaSanPham' => $sp->MaSanPham]) }}">{{$sp->TenSanPham}}</a></h2>
+                                    <h2><a
+                                            href="{{ route('product.show', ['MaSanPham' => $sp->MaSanPham]) }}">{{$sp->TenSanPham}}</a>
+                                    </h2>
                                     <div class="product-wid-rating">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -127,9 +135,12 @@
                             @foreach ($topsellers as $sp)
                                 <div class="single-wid-product">
                                     <a href="{{ route('product.show', ['MaSanPham' => $sp->MaSanPham]) }}">
-                                        <img src="{{ asset('assets/products/' . $sp->AnhSanPham) }}" alt="" class="product-thumb">
+                                        <img src="{{ asset('assets/products/' . $sp->AnhSanPham) }}" alt=""
+                                            class="product-thumb">
                                     </a>
-                                    <h2><a href="{{ route('product.show', ['MaSanPham' => $sp->MaSanPham]) }}">{{$sp->TenSanPham}}</a></h2>
+                                    <h2><a
+                                            href="{{ route('product.show', ['MaSanPham' => $sp->MaSanPham]) }}">{{$sp->TenSanPham}}</a>
+                                    </h2>
                                     <div class="product-wid-rating">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -151,9 +162,12 @@
                             @foreach ($topsellers as $sp)
                                 <div class="single-wid-product">
                                     <a href="{{ route('product.show', ['MaSanPham' => $sp->MaSanPham]) }}">
-                                        <img src="{{ asset('assets/products/' . $sp->AnhSanPham) }}" alt="" class="product-thumb">
+                                        <img src="{{ asset('assets/products/' . $sp->AnhSanPham) }}" alt=""
+                                            class="product-thumb">
                                     </a>
-                                    <h2><a href="{{ route('product.show', ['MaSanPham' => $sp->MaSanPham]) }}">{{$sp->TenSanPham}}</a></h2>
+                                    <h2><a
+                                            href="{{ route('product.show', ['MaSanPham' => $sp->MaSanPham]) }}">{{$sp->TenSanPham}}</a>
+                                    </h2>
                                     <div class="product-wid-rating">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -176,4 +190,3 @@
     </main>
 
 @endsection
-
