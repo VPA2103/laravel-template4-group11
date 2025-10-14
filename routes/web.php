@@ -39,6 +39,9 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth',AuthAdmin::class])->group(function () {
     // Giao diện tài khoản người dùng
     Route::get('/admin', [AdminController::class,'index'])->name('admin.index');
+     Route::get('/sanpham', [AdminController::class,'sanpham'])->name('admin.sanpham');
+     Route::get('/admin/sanpham/add', [AdminController::class, 'sanpham_add'])->name('admin.sanpham.add');
+     Route::post('/admin/sanpham/store', [AdminController::class, 'sanpham_store'])->name('admin.sanpham.store');
     });
 
 
