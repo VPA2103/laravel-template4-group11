@@ -21,7 +21,8 @@
     <link href="{{ asset('assets/admin/dist/css/sb-admin-2.css') }}" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="{{ asset('assets/admin/bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/admin/bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet"
+        type="text/css">
     @yield('linkcss')
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -52,7 +53,7 @@
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-messages">
                         <li>
@@ -63,7 +64,8 @@
                                         <em>Yesterday</em>
                                     </span>
                                 </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
+                                </div>
                             </a>
                         </li>
                         <li class="divider"></li>
@@ -75,7 +77,8 @@
                                         <em>Yesterday</em>
                                     </span>
                                 </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
+                                </div>
                             </a>
                         </li>
                         <li class="divider"></li>
@@ -87,7 +90,8 @@
                                         <em>Yesterday</em>
                                     </span>
                                 </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
+                                </div>
                             </a>
                         </li>
                         <li class="divider"></li>
@@ -103,7 +107,7 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-tasks">
                         <li>
@@ -114,7 +118,8 @@
                                         <span class="pull-right text-muted">40% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                        <div class="progress-bar progress-bar-success" role="progressbar"
+                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
                                             <span class="sr-only">40% Complete (success)</span>
                                         </div>
                                     </div>
@@ -130,7 +135,8 @@
                                         <span class="pull-right text-muted">20% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                        <div class="progress-bar progress-bar-info" role="progressbar"
+                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
                                             <span class="sr-only">20% Complete</span>
                                         </div>
                                     </div>
@@ -146,7 +152,8 @@
                                         <span class="pull-right text-muted">60% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar"
+                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
                                             <span class="sr-only">60% Complete (warning)</span>
                                         </div>
                                     </div>
@@ -162,7 +169,8 @@
                                         <span class="pull-right text-muted">80% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar"
+                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
                                             <span class="sr-only">80% Complete (danger)</span>
                                         </div>
                                     </div>
@@ -182,7 +190,7 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-alerts">
                         <li>
@@ -242,7 +250,7 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -277,7 +285,8 @@
                             <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Đơn Hàng<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Đơn Hàng<span
+                                    class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                             </ul>
                             <!-- /.nav-second-level -->
@@ -285,8 +294,17 @@
                         <li>
                             <a href="tables.html"><i class="fa fa-table fa-fw"></i> Đơn Hàng Chờ Xử Lý</a>
                         </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Sản Phẩm</a>
+                        <li class="active">
+                            <a href="{{ route('admin.sanpham') }}"><i class="fa fa-files-o fa-fw"></i> Sản Phẩm<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a class="active" href="{{route('admin.sanpham')  }}"> Sản Phẩm</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('admin.sanpham.add')  }}">Thêm Mới Sản Phẩm</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Danh Mục<span class="fa arrow"></span></a>

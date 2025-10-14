@@ -21,6 +21,7 @@ class SanPham extends Model
         'SoLuongTon',
         'AnhSanPham',
         'MaLoaiSanPham',
+        'Slug',
     ];
     public function loaiSanPham()
     {
