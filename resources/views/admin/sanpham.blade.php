@@ -48,7 +48,7 @@
                                 <th>Số Lượng Tồn</th>
                                 <th>Slug</th>
                                 <th>Loại Sản Phẩm</th>
-                                <th>Mô Tả</th>
+                                <th>Mô Tả</th>s
                                 <th>Action</th>
                             </tr>
                         </thead>
