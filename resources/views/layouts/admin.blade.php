@@ -258,7 +258,15 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li>
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fa fa-sign-out fa-fw"></i> Logout
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -282,7 +290,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="{{ route('admin.index') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Đơn Hàng<span
@@ -295,7 +303,8 @@
                             <a href="tables.html"><i class="fa fa-table fa-fw"></i> Đơn Hàng Chờ Xử Lý</a>
                         </li>
                         <li class="active">
-                            <a href="{{ route('admin.sanpham') }}"><i class="fa fa-files-o fa-fw"></i> Sản Phẩm<span class="fa arrow"></span></a>
+                            <a href="{{ route('admin.sanpham') }}"><i class="fa fa-files-o fa-fw"></i> Sản Phẩm<span
+                                    class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a class="active" href="{{route('admin.sanpham')  }}"> Sản Phẩm</a>
@@ -365,9 +374,6 @@
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a class="active" href="blank.html">Giỏ Hàng</a>
-                                </li>
-                                <li>
-                                    <a href="login.html">Thoát ra</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

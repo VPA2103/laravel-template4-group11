@@ -48,7 +48,7 @@
                                 @foreach($sanphams as $sp)
                                     <div class="single-product">
                                         <div class="product-f-image">
-                                            <img src="{{ asset('assets/products/' . $sp->AnhSanPham) }}"
+                                            <img src="{{ asset('assets/products/thumbnails/' . $sp->AnhSanPham) }}"
                                                 alt="{{ $sp->TenSanPham }}">
                                             <div class="product-hover">
                                                 <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to
@@ -107,7 +107,7 @@
                             @foreach ($topsellers as $sp)
                                 <div class="single-wid-product">
                                     <a href="{{ route('product.show', ['MaSanPham' => $sp->MaSanPham]) }}">
-                                        <img src="{{ asset('assets/products/' . $sp->AnhSanPham) }}" alt=""
+                                        <img src="{{ asset('assets/products/thumbnails/' . $sp->AnhSanPham) }}" alt=""
                                             class="product-thumb">
                                     </a>
                                     <h2><a
@@ -135,7 +135,7 @@
                             @foreach ($topsellers as $sp)
                                 <div class="single-wid-product">
                                     <a href="{{ route('product.show', ['MaSanPham' => $sp->MaSanPham]) }}">
-                                        <img src="{{ asset('assets/products/' . $sp->AnhSanPham) }}" alt=""
+                                        <img src="{{ asset('assets/products/thumbnails/' . $sp->AnhSanPham) }}" alt=""
                                             class="product-thumb">
                                     </a>
                                     <h2><a
@@ -162,7 +162,7 @@
                             @foreach ($topsellers as $sp)
                                 <div class="single-wid-product">
                                     <a href="{{ route('product.show', ['MaSanPham' => $sp->MaSanPham]) }}">
-                                        <img src="{{ asset('assets/products/' . $sp->AnhSanPham) }}" alt=""
+                                        <img src="{{ asset('assets/products/thumbnails/' . $sp->AnhSanPham) }}" alt=""
                                             class="product-thumb">
                                     </a>
                                     <h2><a
