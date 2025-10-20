@@ -5,27 +5,30 @@ namespace App\Http\Controllers;
 use App\Models\LoaiSanPham;
 use App\Models\SanPham;
 use Carbon\Carbon;
-use Faker\Provider\Image;
 use File;
 use Illuminate\Http\Request;
 use Str;
 
 class AdminController extends Controller
 {
-   public function index()
+    public function index()
     {
         return view('admin.index');
     }
+
     public function sanpham()
     {
         $sanphams = SanPham::all();
-        return view('admin.sanpham',compact('sanphams'));
+
+        return view('admin.sanpham', compact('sanphams'));
     }
-//          'TenLoaiSanPham',
-//         'AnhLoaiSanPham',
-        public function sanpham_add()
+
+    //          'TenLoaiSanPham',
+    //         'AnhLoaiSanPham',
+    public function sanpham_add()
     {
         $loaisanphams = LoaiSanPham::select('MaLoaiSanPham', 'TenLoaiSanPham')->orderBy('TenLoaiSanPham')->get();
+
         return view('admin.them-sanpham', compact('loaisanphams'));
     }
 
@@ -41,15 +44,15 @@ class AdminController extends Controller
         // 'Slug',
         $request->validate([
             'TenSanPham' => 'required',
-            //'Slug' => 'required|unique:products,Slug',
-            //'short_description' => 'required',
+            // 'Slug' => 'required|unique:products,Slug',
+            // 'short_description' => 'required',
             'MoTa' => 'required',
             'Gia' => 'required',
             'SoLuongTon' => 'required',
             'AnhSanPham' => 'required|mimes:png,jpg,jpeg|max:2048',
             'MaLoaiSanPham' => 'required',
         ]);
-        $sanpham = new SanPham();
+        $sanpham = new SanPham;
 
         $sanpham->TenSanPham = $request->TenSanPham;
         $sanpham->Slug = Str::Slug($request->TenSanPham);
@@ -62,7 +65,7 @@ class AdminController extends Controller
 
         if ($request->hasFile('AnhSanPham')) {
             $image = $request->file('AnhSanPham');
-            $imageName = $current_timestamp . '.' . $image->extension();
+            $imageName = $current_timestamp.'.'.$image->extension();
             $sanpham->AnhSanPham = $imageName;
 
             $this->GenerateProductThumbailImage($image, $imageName);
@@ -77,7 +80,7 @@ class AdminController extends Controller
                 $gcheck = in_array($gextension, $allowedfileExtion);
 
                 if ($gcheck) {
-                    $gfileName = $current_timestamp . '_' . $counter . '.' . $gextension;
+                    $gfileName = $current_timestamp.'_'.$counter.'.'.$gextension;
                     array_push($gallery_arr, $gfileName);
                     $counter = $counter + 1;
                 }
@@ -86,27 +89,27 @@ class AdminController extends Controller
         }
 
         $sanpham->save();
+
         return redirect()->route('admin.sanpham')->with('success', 'Sản Phẩm được thêm thành công!');
     }
+
     public function GenerateProductThumbailImage($image, $imageName)
-{
-    $destinationPath = public_path('assets/products');
-    $destinationPathThumbnail = public_path('assets/products/thumbnails');
+    {
+        $destinationPath = public_path('assets/products/thumbnails');
+        $destinationPathThumbnail = public_path('assets/products/thumbnails');
 
-    // Tạo thư mục nếu chưa có
-    if (!File::exists($destinationPath)) {
-        File::makeDirectory($destinationPath, 0755, true);
+        // Tạo thư mục nếu chưa có
+        if (! File::exists($destinationPath)) {
+            File::makeDirectory($destinationPath, 0755, true);
+        }
+        if (! File::exists($destinationPathThumbnail)) {
+            File::makeDirectory($destinationPathThumbnail, 0755, true);
+        }
+
+        // Lưu ảnh gốc vào assets/products
+        $image->move($destinationPath, $imageName);
+
+        // Copy ảnh sang thumbnails (không resize)
+        File::copy($destinationPath.'/'.$imageName, $destinationPathThumbnail.'/'.$imageName);
     }
-    if (!File::exists($destinationPathThumbnail)) {
-        File::makeDirectory($destinationPathThumbnail, 0755, true);
-    }
-
-    // Lưu ảnh gốc vào assets/products
-    $image->move($destinationPath, $imageName);
-
-    // Copy ảnh sang thumbnails (không resize)
-    File::copy($destinationPath . '/' . $imageName, $destinationPathThumbnail . '/' . $imageName);
 }
-
-
-}    

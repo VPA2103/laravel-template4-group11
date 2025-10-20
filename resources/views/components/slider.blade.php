@@ -169,7 +169,7 @@
 <div class="slider-container" id="productSlider">
     @foreach ($sanphams as $sp)
         <div class="slide {{ $loop->first ? 'active' : '' }}">
-            <img src="{{ asset('assets/products/' . $sp->AnhSanPham) }}" alt="{{ $sp->TenSanPham }}">
+            <img src="{{ asset('assets/products/thumbnails/' . $sp->AnhSanPham) }}" alt="{{ $sp->TenSanPham }}">
             <div class="slide-content">
                 <h2>{{ $sp->TenSanPham }}</h2>
                 <p>{{ $sp->MoTa }}</p>
